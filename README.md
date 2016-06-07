@@ -10,4 +10,8 @@ USER STORIES
 
 --As a hiring manager or other potential partner I want to see a full gamut of Nathan's coding experience and knowledge demonstrated in the projects exhibited.
 
---As an aspiring employee or partner with a comparatively limited track record, I want to demonstrate as many coding skills as possible passively through the site at hand. 
+--As an aspiring employee or partner with a comparatively limited track record, I want to demonstrate as many coding skills as possible passively through the site at hand.
+
+--As a designer I want my portfolio to be media rich in a way that reflects a bit of my personality and pursuits as well as my skills.
+
+--As a user I want to be diverted a bit with some well-presented media. 
