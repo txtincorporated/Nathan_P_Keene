@@ -1,0 +1,47 @@
+  .l-slider {
+    position: fixed;
+    top: 0;
+    padding: 0 0 0 0;
+  }
+
+  /*.imgHolder {
+    position: relative;
+  }*/
+
+  .l-semitrans {
+    position: fixed;
+    top: -3%;
+    left: 0;
+  }
+
+  .wk {
+    position: fixed;
+    /*top: 0;
+    left: 0;*/
+    width: 100%;
+  }
+
+  .sections {
+    margin-top: 100%;
+  }
+
+.l-nav-bar {
+  position: fixed;
+  width: 100%;
+  margin-top: 70%;
+  background-color: black;
+}
+
+.l-nav-list li {
+  list-style: none;
+  display: inline;
+  color: red;
+}
+
+.template {
+  display: none;
+}
+
+.noBullets {
+  list-style: none;
+}
