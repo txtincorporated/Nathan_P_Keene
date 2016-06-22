@@ -41,5 +41,5 @@ projectStack.forEach(function(ele) {
 console.log(projects);
 
 projectStack.forEach(function(a) {
-  $('.projects').append(a.toHtml());
+  $('#projects').append(a.toHtml());
 });
