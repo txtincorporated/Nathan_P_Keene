@@ -23,24 +23,24 @@
         <li><a href="/about">about/contact</a></li>
       </ul>
     </nav>
+    <article id="template" data-category="cat">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Description: {{description}}</p>
+        <p>Language: {{language}}</p>
+        <p>Created: {{created_at}}</p>
+        <p>Last updated: {{updated_at}}</p>
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </article>
     <section id="projects">
-      <article class="template" data-category="cat">
-        <header>
-          <h2>Name</h2>
-          <div class="projVitals">
-            <ul class="noBullets">
-              <li id="type">TYPE:</li>
-              <li id="req">REQUIRED:</li>
-              <li id="ustory1">USER STORY 1:</li>
-              <li id="ustory2">USER STORY 2:</li>
-              <li id="ustory3">USER STORY 3:</li>
-            </ul>
-          </div>
-        </header>
-        <section id="projBody">
-          <img class="sample" src="">
-          <a href="" target="_blank">Visit project</a>
-        </section>
+      <article>
+        <h1>Selected Projects on GitHub</h1>
+        <ul>
+          PROJECTS GO HERE
+        </ul>
       </article>
       <article>
         <header>
@@ -63,10 +63,11 @@
     <script type="text/javascript" src="vendor/scripts/page.js"></script>
     <script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
     <!-- <script type="text/javascript" src="scripts/projectGuts.js"></script> -->
-    <script type="text/javascript" src="scripts/projControl.js"></script>
-    <script type="text/javascript" src="scripts/aboutControl.js"></script>
-    <script type="text/javascript" src="scripts/projects.js"></script>
-    <script type="text/javascript" src="scripts/routes.js"></script>
-    <script type="text/javascript" src="scripts/base.js"></script>
+    <script type="text/javascript" src="/scripts/projControl.js"></script>
+    <script type="text/javascript" src="/scripts/aboutControl.js"></script>
+    <script type="text/javascript" src="/scripts/projects.js"></script>
+    <script type="text/javascript" src="/scripts/projView.js"></script>
+    <script type="text/javascript" src="/scripts/routes.js"></script>
+    <script type="text/javascript" src="/scripts/base.js"></script>
   </body>
 </html>

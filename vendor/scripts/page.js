@@ -79,8 +79,8 @@
    *   page('/from', '/to')
    *   page();
    *
-   * @param {string|!Function|!Object} path
-   * @param {Function=} fn
+   * @param {String|Function} path
+   * @param {Function} fn...
    * @api public
    */
 
@@ -92,7 +92,7 @@
 
     // route <path> to <callback ...>
     if ('function' === typeof fn) {
-      var route = new Route(/** @type {string} */ (path));
+      var route = new Route(path);
       for (var i = 1; i < arguments.length; ++i) {
         page.callbacks.push(route.middleware(arguments[i]));
       }
@@ -114,7 +114,7 @@
 
   /**
    * Current path being processed
-   * @type {string}
+   * @type {String}
    */
   page.current = '';
 
@@ -132,7 +132,7 @@
   /**
    * Get or set basepath to `path`.
    *
-   * @param {string} path
+   * @param {String} path
    * @api public
    */
 
@@ -188,11 +188,10 @@
   /**
    * Show `path` with optional `state` object.
    *
-   * @param {string} path
-   * @param {Object=} state
-   * @param {boolean=} dispatch
-   * @param {boolean=} push
-   * @return {!Context}
+   * @param {String} path
+   * @param {Object} state
+   * @param {Boolean} dispatch
+   * @return {Context}
    * @api public
    */
 
@@ -208,8 +207,8 @@
    * Goes back in the history
    * Back should always let the current route push state and then go back.
    *
-   * @param {string} path - fallback path to go back if no more history exists, if undefined defaults to page.base
-   * @param {Object=} state
+   * @param {String} path - fallback path to go back if no more history exists, if undefined defaults to page.base
+   * @param {Object} [state]
    * @api public
    */
 
@@ -235,8 +234,8 @@
    * Register route to redirect from one path to other
    * or just redirect to another route
    *
-   * @param {string} from - if param 'to' is undefined redirects to 'from'
-   * @param {string=} to
+   * @param {String} from - if param 'to' is undefined redirects to 'from'
+   * @param {String} [to]
    * @api public
    */
   page.redirect = function(from, to) {
@@ -244,7 +243,7 @@
     if ('string' === typeof from && 'string' === typeof to) {
       page(from, function(e) {
         setTimeout(function() {
-          page.replace(/** @type {!string} */ (to));
+          page.replace(to);
         }, 0);
       });
     }
@@ -260,11 +259,9 @@
   /**
    * Replace `path` with optional `state` object.
    *
-   * @param {string} path
-   * @param {Object=} state
-   * @param {boolean=} init
-   * @param {boolean=} dispatch
-   * @return {!Context}
+   * @param {String} path
+   * @param {Object} state
+   * @return {Context}
    * @api public
    */
 
@@ -281,9 +278,10 @@
   /**
    * Dispatch the given `ctx`.
    *
-   * @param {Context} ctx
+   * @param {Object} ctx
    * @api private
    */
+
   page.dispatch = function(ctx) {
     var prev = prevContext,
       i = 0,
@@ -323,6 +321,7 @@
    * @param {Context} ctx
    * @api private
    */
+
   function unhandled(ctx) {
     if (ctx.handled) return;
     var current;
@@ -361,7 +360,7 @@
    * Accommodates whitespace in both x-www-form-urlencoded
    * and regular percent-encoded form.
    *
-   * @param {string} val - URL component to decode
+   * @param {str} URL component to decode
    */
   function decodeURLEncodedURIComponent(val) {
     if (typeof val !== 'string') { return val; }
@@ -372,9 +371,8 @@
    * Initialize a new "request" `Context`
    * with the given `path` and optional initial `state`.
    *
-   * @constructor
-   * @param {string} path
-   * @param {Object=} state
+   * @param {String} path
+   * @param {Object} state
    * @api public
    */
 
@@ -440,9 +438,8 @@
    *   - `sensitive`    enable case-sensitive routes
    *   - `strict`       enable strict matching for trailing slashes
    *
-   * @constructor
-   * @param {string} path
-   * @param {Object=} options
+   * @param {String} path
+   * @param {Object} options.
    * @api private
    */
 
@@ -452,7 +449,8 @@
     this.method = 'GET';
     this.regexp = pathtoRegexp(this.path,
       this.keys = [],
-      options);
+      options.sensitive,
+      options.strict);
   }
 
   /**
@@ -482,9 +480,9 @@
    * Check if this route matches `path`, if so
    * populate `params`.
    *
-   * @param {string} path
+   * @param {String} path
    * @param {Object} params
-   * @return {boolean}
+   * @return {Boolean}
    * @api private
    */
 
@@ -624,9 +622,92 @@
   page.sameOrigin = sameOrigin;
 
 }).call(this,require('_process'))
-},{"_process":4,"path-to-regexp":3}],2:[function(require,module,exports){
-module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
+},{"_process":2,"path-to-regexp":3}],2:[function(require,module,exports){
+// shim for using process in browser
+
+var process = module.exports = {};
+
+process.nextTick = (function () {
+    var canSetImmediate = typeof window !== 'undefined'
+    && window.setImmediate;
+    var canMutationObserver = typeof window !== 'undefined'
+    && window.MutationObserver;
+    var canPost = typeof window !== 'undefined'
+    && window.postMessage && window.addEventListener
+    ;
+
+    if (canSetImmediate) {
+        return function (f) { return window.setImmediate(f) };
+    }
+
+    var queue = [];
+
+    if (canMutationObserver) {
+        var hiddenDiv = document.createElement("div");
+        var observer = new MutationObserver(function () {
+            var queueList = queue.slice();
+            queue.length = 0;
+            queueList.forEach(function (fn) {
+                fn();
+            });
+        });
+
+        observer.observe(hiddenDiv, { attributes: true });
+
+        return function nextTick(fn) {
+            if (!queue.length) {
+                hiddenDiv.setAttribute('yes', 'no');
+            }
+            queue.push(fn);
+        };
+    }
+
+    if (canPost) {
+        window.addEventListener('message', function (ev) {
+            var source = ev.source;
+            if ((source === window || source === null) && ev.data === 'process-tick') {
+                ev.stopPropagation();
+                if (queue.length > 0) {
+                    var fn = queue.shift();
+                    fn();
+                }
+            }
+        }, true);
+
+        return function nextTick(fn) {
+            queue.push(fn);
+            window.postMessage('process-tick', '*');
+        };
+    }
+
+    return function nextTick(fn) {
+        setTimeout(fn, 0);
+    };
+})();
+
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+// TODO(shtylman)
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
 };
 
 },{}],3:[function(require,module,exports){
@@ -1021,92 +1102,9 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(path, keys, options)
 }
 
-},{"isarray":2}],4:[function(require,module,exports){
-// shim for using process in browser
-
-var process = module.exports = {};
-
-process.nextTick = (function () {
-    var canSetImmediate = typeof window !== 'undefined'
-    && window.setImmediate;
-    var canMutationObserver = typeof window !== 'undefined'
-    && window.MutationObserver;
-    var canPost = typeof window !== 'undefined'
-    && window.postMessage && window.addEventListener
-    ;
-
-    if (canSetImmediate) {
-        return function (f) { return window.setImmediate(f) };
-    }
-
-    var queue = [];
-
-    if (canMutationObserver) {
-        var hiddenDiv = document.createElement("div");
-        var observer = new MutationObserver(function () {
-            var queueList = queue.slice();
-            queue.length = 0;
-            queueList.forEach(function (fn) {
-                fn();
-            });
-        });
-
-        observer.observe(hiddenDiv, { attributes: true });
-
-        return function nextTick(fn) {
-            if (!queue.length) {
-                hiddenDiv.setAttribute('yes', 'no');
-            }
-            queue.push(fn);
-        };
-    }
-
-    if (canPost) {
-        window.addEventListener('message', function (ev) {
-            var source = ev.source;
-            if ((source === window || source === null) && ev.data === 'process-tick') {
-                ev.stopPropagation();
-                if (queue.length > 0) {
-                    var fn = queue.shift();
-                    fn();
-                }
-            }
-        }, true);
-
-        return function nextTick(fn) {
-            queue.push(fn);
-            window.postMessage('process-tick', '*');
-        };
-    }
-
-    return function nextTick(fn) {
-        setTimeout(fn, 0);
-    };
-})();
-
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-// TODO(shtylman)
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
+},{"isarray":4}],4:[function(require,module,exports){
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
 },{}]},{},[1])(1)
