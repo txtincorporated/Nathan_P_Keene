@@ -2,7 +2,7 @@
   var projView = {};
 
   var reProj = function() {
-    $projx = $('#projects');
+    var $projx = $('#projects');
     $projx.find('ul').empty();
     $projx.show().siblings().hide();
   };
@@ -13,7 +13,7 @@
     reProj();
 
     $('#projects ul').append(
-      projs.with('stargazers').map(render)
+      projs.with('stargazers_count').map(render)
     );
   };
 

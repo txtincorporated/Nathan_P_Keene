@@ -1,4 +1,4 @@
-var projects = [];
+/*var projects = [];
 
 function Project(details) {
   this.completed = details.completed;
@@ -42,4 +42,4 @@ console.log(projects);
 
 projectStack.forEach(function(a) {
   $('#projects').append(a.toHtml());
-});
+});*/
