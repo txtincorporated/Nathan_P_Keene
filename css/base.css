@@ -4,9 +4,9 @@
     padding: 0 0 0 0;
   }
 
-  /*.imgHolder {
+  .imgHolder {
     position: relative;
-  }*/
+  }
 
   .l-semitrans {
     position: fixed;
@@ -22,11 +22,11 @@
     position: fixed;
     /*top: 0;
     left: 0;*/
-    width: 100%;
+    max-width: 100%;
   }
 
-  #about {
-    margin-top: 100%;
+  #sections {
+    margin-top: 70%;
   }
 
 .l-nav-bar {
