@@ -13,7 +13,7 @@
     reProj();
 
     $('#projects ul').append(
-      projs.with('stargazers_count').map(render)
+      projs.with('name').map(render)
     );
   };
 
