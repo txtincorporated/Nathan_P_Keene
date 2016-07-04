@@ -2,6 +2,7 @@
     position: fixed;
     top: 0;
     padding: 0 0 0 0;
+    /*width: 100%;*/
   }
 
   .imgHolder {
@@ -11,36 +12,41 @@
   .l-semitrans {
     position: fixed;
     top: -3%;
+    width: 100%;
+    opacity: 0.75;
+  }
+
+  #name {
+    display: inline-block;
+    top: 30%;
     left: 0;
+    max-width: 30%;
+    color: white;
   }
 
   .social {
-    width:100px;
+    display: inline-block;
+    float: right;
+    margin-top: 4%;
+    margin-right: 4%;
+    max-width: 20%;
+  }
+  .icons {
+    max-width:1.5rem;
+    /*margin-left: 30%;*/
+    display: inline-block;
   }
 
   .wk {
     position: fixed;
     /*top: 0;
     left: 0;*/
-    max-width: 100%;
   }
 
   #sections {
     margin-top: 70%;
+    /*max-width: 80%;*/
   }
-
-.l-nav-bar {
-  position: fixed;
-  width: 100%;
-  margin-top: 100%;
-  background-color: black;
-}
-
-.l-nav-list li {
-  list-style: none;
-  display: inline;
-  color: red;
-}
 
 .template {
   display: none;

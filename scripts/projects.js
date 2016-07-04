@@ -5,7 +5,7 @@
   projs.getProjects = function(callback) {
     $.getJSON('/data/projectGuts.json', function(data) {
       $.each(data, function(index, value) {
-        console.log(value);
+        console.log(data);
         projs.all.push(value);
       });
     }).done(function() {
