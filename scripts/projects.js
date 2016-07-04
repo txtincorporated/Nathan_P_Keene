@@ -3,8 +3,9 @@
   projs.all = [];
 
   projs.getProjects = function(callback) {
-    $.getJSON('https://api.github.com/user/repos?access_token=' + githubToken, function(data) {
+    $.getJSON('/data/projectGuts.json', function(data) {
       $.each(data, function(index, value) {
+        console.log(value);
         projs.all.push(value);
       });
     }).done(function() {

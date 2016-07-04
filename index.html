@@ -7,14 +7,14 @@
     <title>Nathan P. Keene</title>
     <script id="template" type="text/x-handlebars-template">
       <li>
-        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
-        <p>Description: {{description}}</p>
-        <p>Language: {{language}}</p>
-        <p>Created: {{created_at}}</p>
-        <p>Last updated: {{updated_at}}</p>
-        {{#if watchers_count}}
-        <p>{{watchers_count}} watching this repo</p>
-        {{/if}}
+        <p>Created: {{completed}}</p>
+        <a href="{{link}}" target="_blank"><h3>{{name}}</h3></a>
+        <p>Type: {{type}}</p>
+        <p>Brief: {{required}}</p>
+        <p>User story 1: {{narrative1}}</p>
+        <p>User story 2: {{narrative2}}</p>
+        <p>User story 3: {{narrative3}}</p>
+        <img src="{{graphic}}">
       </li>
     </script>
   </head>
@@ -55,7 +55,6 @@
     <!-- <script src="/scripts/webdb.js"></script> -->
     <script src="/vendor/scripts/page.js"></script>
     <!-- <script type="text/javascript" src="scripts/projectGuts.js"></script> -->
-    <script src="/data/githubToken.js"></script>
     <script type="text/javascript" src="/scripts/projControl.js"></script>
     <script type="text/javascript" src="/scripts/aboutControl.js"></script>
     <script type="text/javascript" src="/scripts/projects.js"></script>
