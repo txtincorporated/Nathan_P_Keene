@@ -1,23 +1,35 @@
-(function(module) {
-  var projs = {};
-  projs.all = [];
+var projects = [];
 
-  projs.getProjects = function(callback) {
-    $.getJSON('/data/projectGuts.json', function(data) {
-      $.each(data, function(index, value) {
-        console.log(data);
-        projs.all.push(value);
-      });
-    }).done(function() {
-      callback();
-    });
-  };
+function Project(opts) {
+  this.completed = opts.completed;
+  this.projName = opts.projName;
+  this.projType = opts.projType;
+  this.required = opts.required;
+  this.narrative1 = opts.narrative1;
+  this.narrative2 = opts.narrative2;
+  this.narrative3 = opts.narrative3;
+  this.graphic = opts.graphic;
+  this.link = opts.link;
+}
 
-  projs.with = function(attr) {
-    return projs.all.filter(function(proj) {
-      return proj[attr];
-    });
-  };
+Project.prototype.toHtml = function () {
+  var projTemplate = $('#template').html();
+  var templateScript = Handlebars.compile(projTemplate);
+  var newTemplate = templateScript(this);
 
-  module.projs = projs;
-})(window);
+  return newTemplate;
+};
+
+projectStack.sort(function(a,b) {
+  return (new Date(b.completed)) - (new Date(a.completed));
+});
+
+projectStack.forEach(function(ele) {
+  projects.push(new Project(ele));
+});
+console.log(projects);
+
+projects.forEach(function(a){
+  $('#projects').append(a.toHtml());
+  // console.log(a);
+});
