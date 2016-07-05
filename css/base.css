@@ -10,20 +10,32 @@
 
   .l-semitrans {
     position: fixed;
-    top: -3%;
+    top: 0;
     left: 0;
+    color: white;
+    opacity: 0.75;
+  }
+
+  #name {
+    font-size: 1.5rem;
   }
 
   .social {
-    width:100px;
+    width:10%;
+    float: right;
   }
 
   .wk {
     position: fixed;
-    /*top: 0;
-    left: 0;*/
-    width: 100%;
+    top: 0;
+    left: 0;
+    max-width: 100%;
   }
+
+  .sample {
+    max-width: 100%;
+  }
+
 
   .sections {
     margin-top: 100%;
