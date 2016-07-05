@@ -4,7 +4,7 @@
   var reProj = function() {
     var $projx = $('#projects');
     $projx.find('ul').empty();
-    $projx.show().siblings().hide();
+    // $projx.show().siblings().hide();
   };
 
   var render = Handlebars.compile($('#template').text());
