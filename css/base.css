@@ -4,18 +4,33 @@
     padding: 0 0 0 0;
   }
 
-  .imgHolder {
+  /*.imgHolder {
     position: relative;
-  }
+  }*/
+
+  /*#navLinks {
+  }*/
 
   .l-semitrans {
     position: fixed;
-    top: -3%;
+    top: 0;
     left: 0;
+    color: white;
+    opacity: 0.75;
+  }
+
+  #name {
+    width: 50%;
+    font-size: 1.5rem;
+    margin-top: 0;
   }
 
   .social {
-    width:100px;
+    width:10%;
+    float: right;
+  }
+
+  #socIcons {
   }
 
   .wk {
