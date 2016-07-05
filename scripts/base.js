@@ -1,30 +1,30 @@
 var projects = [];
 
-function Project(details) {
-  this.completed = details.completed;
-  this.projName = details.projName;
-  this.projType = details.projType;
-  this.required = details.required;
-  this.narrative1 = details.narrative1;
-  this.narrative2 = details.narrative2;
-  this.narrative3 = details.narrative3;
-  this.graphic = details.graphic;
-  this.link = details.link;
+function Project(opts) {
+  this.completed = opts.completed;
+  this.projName = opts.projName;
+  this.projType = opts.projType;
+  this.required = opts.required;
+  this.narrative1 = opts.narrative1;
+  this.narrative2 = opts.narrative2;
+  this.narrative3 = opts.narrative3;
+  this.graphic = opts.graphic;
+  this.link = opts.link;
 
   return this;
 }
 
-Project.prototype = function () {
+Project.prototype.toHtml = function () {
   var $newProject = $('article.template').clone();
 
-  $newProject.attr('data category',this.projType);
+  $newProject.attr('data-category',this.projType);
   $('.template h2').text(this.projName);
-  $('.template#type').append(this.projType);
-  $('.template#req').append(this.required);
-  $('.template#ustory1').append(this.narrative1);
-  $('.template#ustory2').append(this.narrative2);
-  $('.template#ustory3').append(this.narrative3);
-  $('.template.sample').attr('src',this.graphic);
+  $('.template #type').append(this.projType);
+  $('.template #req').append(this.required);
+  $('.template #ustory1').append(this.narrative1);
+  $('.template #ustory2').append(this.narrative2);
+  $('.template #ustory3').append(this.narrative3);
+  $('.template .sample').attr('src',this.graphic);
   $('.template a').attr('href',this.link);
 
   $('article').removeClass('template');
@@ -37,9 +37,10 @@ projectStack.sort(function(a,b) {
 });
 
 projectStack.forEach(function(ele) {
-  projects.push(Project(ele));
+  projects.push(new Project(ele));
 });
 
-projectStack.forEach(function(a) {
-  $('.projects').append(a.toHtml());
+projects.forEach(function(a){
+  $('#projects').append(a.toHtml());
+  // console.log(a);
 });
