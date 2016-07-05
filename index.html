@@ -8,8 +8,8 @@
     <script id="template" type="text/x-handlebars-template">
       <li>
         <p>Created: {{completed}}</p>
-        <a href="{{link}}" target="_blank"><h3>{{name}}</h3></a>
-        <p>Type: {{type}}</p>
+        <a href="{{link}}" target="_blank"><h3>{{projName}}</h3></a>
+        <p>Type: {{projType}}</p>
         <p>Brief: {{required}}</p>
         <p>User story 1: {{narrative1}}</p>
         <p>User story 2: {{narrative2}}</p>
@@ -46,24 +46,18 @@
       <section id="projects">
         <article>
           <h1>Selected Projects</h1>
-          <ul>
-            PROJECTS GO HERE
-          </ul>
+          <ul></ul>
         </article>
       </section>
     </article>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/marked.js"></script>
-    <script src="/vendor/scripts/html5sql.js"></script>
+    <!-- <script src="/vendor/scripts/html5sql.js"></script> -->
     <!-- <script src="/scripts/webdb.js"></script> -->
     <!-- <script src="/vendor/scripts/page.js"></script> -->
     <script type="text/javascript" src="scripts/projectGuts.js"></script>
     <script type="text/javascript" src="/scripts/projects.js"></script>
     <script type="text/javascript" src="/scripts/projView.js"></script>
-    <script type="text/javascript" src="/scripts/projControl.js"></script>
-    <script type="text/javascript" src="/scripts/aboutControl.js"></script>
-    <!-- <script type="text/javascript" src="/scripts/routes.js"></script> -->
-    <!-- <script type="text/javascript" src="/scripts/base.js"></script> -->
   </body>
 </html>
