@@ -9,9 +9,6 @@
   }*/
 
   .l-semitrans {
-    position: fixed;
-    top: 0;
-    left: 0;
     color: white;
     opacity: 0.75;
   }
@@ -25,6 +22,12 @@
     float: right;
   }
 
+#socIcons {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
   .wk {
     position: fixed;
     top: 0;
@@ -36,17 +39,20 @@
     max-width: 100%;
   }
 
-
-  .sections {
-    margin-top: 100%;
+  #sections {
+    margin-top: 70%;
   }
 
-.l-nav-bar {
+/*#projects {
+  margin-top: 30%;
+}*/
+
+/*.l-nav-bar {
   position: fixed;
   width: 100%;
   margin-top: 70%;
   background-color: black;
-}
+}*/
 
 .l-nav-list li {
   list-style: none;
