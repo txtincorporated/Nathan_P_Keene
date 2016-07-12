@@ -1,8 +1,13 @@
 (function(module) {
   var projControl = {};
   projControl.index = function() {
-    $('#projects').show().siblings().hide();
-    projs.getProjects(projView.index);//DONE: create projView.index in a file called projView.js
+    var $projx = $('#projects');
+    $projx.show().siblings().hide();
+    if($projx.hasClass('pageInit')) {
+      console.log('$projx initialized');
+      $projx.toggleClass('pageInit');
+      projs.getProjects(projView.index);//DONE: create projView.index in a file called   projView.js
+    }
   };
   module.projControl = projControl;
 })(window);
