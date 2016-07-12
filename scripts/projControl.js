@@ -4,7 +4,6 @@
     var $projx = $('#projects');
     $projx.show().siblings().hide();
     if($projx.hasClass('pageInit')) {
-      console.log('$projx initialized');
       $projx.toggleClass('pageInit');
       projs.getProjects(projView.index);//DONE: create projView.index in a file called   projView.js
     }
