@@ -16,6 +16,7 @@
         <p>{{watchers_count}} watching this repo</p>
         {{/if}}
       </li>
+      <p>Total repos:{{repoSize}}</p>
     </script>
   </head>
   <body>
@@ -35,6 +36,7 @@
       <section id="projects" class="pageInit" data-category="cat">
         <article>
           <h1>Selected Projects on GitHub</h1>
+          <p id="totalSize"></p>
           <ul>
             PROJECTS GO HERE
           </ul>
