@@ -9,8 +9,13 @@
 
   var render = Handlebars.compile($('#template').text());
 
+
   projView.index = function() {
     reProj();
+
+    Handlebars.registerHelper('formatDate', function(date) {
+      return moment(date).format('dddd MMMM Do, YYYY');
+    });
 
     $('#projects ul').append(
       projs.with('stargazers_count').map(render)
@@ -20,7 +25,7 @@
     var $projArr = projs.all;
     $projArr.map(function(item) {testArr.push(item.size);});
     var sizeAll = testArr.reduce(function(a,b) {return a + b;});
-    $('#totalSize').html('(Out of ' + parseInt((sizeAll/1000)) + ' MB total)');
+    $('#totalSize').html('(Out of ' + '<b>' + parseInt((sizeAll/1000)) + ' MB</b> total)');
 
   };
 

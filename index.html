@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="vendor/normalize.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/base.css" media="screen" title="no title" charset="utf-8">
     <title>Nathan P. Keene</title>
     <script id="template" type="text/x-handlebars-template">
       <li>
         <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
-        <p>Description: {{description}}</p>
-        <p>Language: {{language}}</p>
-        <p>Created: {{created_at}}</p>
-        <p>Last updated: {{updated_at}}</p>
+        <p>Description:<br> {{description}}</p>
+        <p>Language:<br> {{language}}</p>
+        <p>Created:<br> {{formatDate created_at}}</p>
+        <p>Last updated:<br> {{formatDate updated_at}}</p>
         {{#if watchers_count}}
         <p>{{watchers_count}} watching this repo</p>
         {{/if}}
       </li>
-      <p>Total repos:{{repoSize}}</p>
     </script>
   </head>
   <body>
@@ -27,11 +27,11 @@
         <img class="wk" src="images/projImgs01.png">
       </div></a>
     </nav>
-      <div class="l-semitrans">
-        <a href="https://www.linkedin.com/in/nathankeene"><img class="social" src="images/linkedin-3-512.png" alt="linkedIn" /></a>
-        <a href="https://txtincorporated.github.io"><img class="social" src="images/github-6-xxl.png" alt="GitHub" /></a>
-      </div>
-      <a href="/about"><p class="l-semitrans" id="name">Nathan P. Keene</p></a>
+    <div class="l-semitrans">
+      <a href="https://www.linkedin.com/in/nathankeene"><img class="social" src="images/linkedin-3-512.png" alt="linkedIn" /></a>
+      <a href="https://txtincorporated.github.io"><img class="social" src="images/github-6-xxl.png" alt="GitHub" /></a>
+    </div>
+    <a href="/about"><h1 class="l-semitrans" id="name">Nathan P. Keene</h1></a>
     <section id="sections">
       <section id="projects" class="pageInit" data-category="cat">
         <article>
@@ -54,14 +54,15 @@
         </section>
     </section>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
+    <script type="text/javascript" src="/scripts/projControl.js"></script>
     <script src="/vendor/scripts/marked.js"></script>
     <script src="/vendor/scripts/html5sql.js"></script>
     <!-- <script src="/scripts/webdb.js"></script> -->
     <script src="/vendor/scripts/page.js"></script>
     <!-- <script type="text/javascript" src="scripts/projectGuts.js"></script> -->
     <script src="/data/githubToken.js"></script>
-    <script type="text/javascript" src="/scripts/projControl.js"></script>
     <script type="text/javascript" src="/scripts/aboutControl.js"></script>
     <script type="text/javascript" src="/scripts/projects.js"></script>
     <script type="text/javascript" src="/scripts/projView.js"></script>
