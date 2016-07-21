@@ -18,7 +18,7 @@
     });
 
     $('#projects ul').append(
-      projs.with('stargazers_count').map(render)
+      projs.with('size', 10000).map(render)
     );
 
     var testArr = [];

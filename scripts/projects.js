@@ -12,9 +12,9 @@
     });
   };
 
-  projs.with = function(attr) {
+  projs.with = function(attr, val) {
     return projs.all.filter(function(proj) {
-      return proj[attr];
+      return proj[attr]>=val;
     });
   };
 
