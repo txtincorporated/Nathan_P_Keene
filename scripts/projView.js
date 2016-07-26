@@ -22,10 +22,10 @@
     });
 
     $('.l-slider div').append(
-      projs.with('size', 10000).map(render1)
+      projs.with('homepage').map(render1)
     );
     $('#projects ul').append(
-      projs.with('size', 10000).map(render2)
+      projs.with('homepage').map(render2)
     );
 
     var testArr = [];
