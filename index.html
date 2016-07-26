@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="vendor/normalize.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="css/base.css" media="screen" title="no title" charset="utf-8">
     <title>Nathan P. Keene</title>
-    <script id="template" type="text/x-handlebars-template">
+    <script id="template1" type="text/x-handlebars-template">
+        <a href="{{html_url}}" target="_blank"><img class="wk" src="https://raw.githubusercontent.com/txtincorporated/{{name}}/master/projImgs/{{id}}.png"></a>
+    </script>
+    <script id="template2" type="text/x-handlebars-template">
       <li>
         <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
         <p>Description:<br> {{description}}</p>

@@ -3,11 +3,15 @@
 
   var reProj = function() {
     var $projx = $('#projects');
+    var $navSlide = $('.l-slider');
     $projx.find('ul').empty();
+    $navSlide.find('div').empty();
+
     $projx.show().siblings().hide();
   };
 
-  var render = Handlebars.compile($('#template').text());
+  var render1 = Handlebars.compile($('#template1').text());
+  var render2 = Handlebars.compile($('#template2').text());
 
 
   projView.index = function() {
@@ -17,8 +21,11 @@
       return moment(date).format('dddd MMMM Do, YYYY');
     });
 
+    $('.l-slider div').append(
+      projs.with('size', 10000).map(render1)
+    );
     $('#projects ul').append(
-      projs.with('size', 10000).map(render)
+      projs.with('size', 10000).map(render2)
     );
 
     var testArr = [];
