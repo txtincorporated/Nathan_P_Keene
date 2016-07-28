@@ -3,27 +3,23 @@
 
   var reProj = function() {
     var $projx = $('#projects');
-    var $navSlide = $('.l-slider');
     $projx.find('ul').empty();
-    $navSlide.find('div').empty();
 
     $projx.show().siblings().hide();
   };
 
-  var render1 = Handlebars.compile($('#template1').text());
   var render2 = Handlebars.compile($('#template2').text());
 
 
   projView.index = function() {
+    aboutView.index();
+
     reProj();
 
     Handlebars.registerHelper('formatDate', function(date) {
       return moment(date).format('dddd MMMM Do, YYYY');
     });
 
-    $('.l-slider div').append(
-      projs.with('homepage').map(render1)
-    );
     $('#projects ul').append(
       projs.with('homepage').map(render2)
     );
