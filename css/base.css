@@ -7,12 +7,15 @@ html {
   .l-slider {
     position: fixed;
     top: 0;
+    height: 33%;
+    width: 100%;
     padding: 0 0 0 0;
   }
 
-  /*.imgHolder {
-    position: relative;
-  }*/
+  .imgHolder {
+    height: 100%;
+    width: 100%;
+  }
 
   /*#navLinks {
   }*/
