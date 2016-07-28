@@ -12,8 +12,9 @@
       }
       return;
     }
+
     projView.index();
-    console.log('projControl.index finished');
+    
   };
   module.projControl = projControl;
 })(window);
