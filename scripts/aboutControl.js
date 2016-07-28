@@ -15,11 +15,11 @@
       }
     }
 
-    $('.l-slider').on('click', function() {
-      if (location.href !=='/projx') {
-        location.replace('/projx');
-      }
-    });
+    // $('.l-slider').on('click', function() {
+    //   if (location.href !=='/projx') {
+    //     location.replace('/projx');
+    //   }
+    // });
   };
   module.aboutControl = aboutControl;
 })(window);
