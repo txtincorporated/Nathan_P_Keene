@@ -3,13 +3,15 @@
   projs.all = [];
 
   projs.getProjects = function(callback) {
-    $.getJSON('https://api.github.com/user/repos?access_token=' + githubToken, function(data) {
-      $.each(data, function(index, value) {
-        projs.all.push(value);
+    if (!projs.all[0]) {
+      console.log(projs.all);
+      $.getJSON('https://api.github.com/user/repos?access_token=' + githubToken, function(data) {
+        $.each(data, function(index, value) {
+          projs.all.push(value);
+        });
       });
-    }).done(function() {
-      callback();
-    });
+    }
+    callback();
   };
 
   projs.with = function(attr) {
