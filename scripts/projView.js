@@ -4,14 +4,12 @@
   var reProj = function() {
     var $projx = $('#projects');
     $projx.find('ul').empty();
-
-    $projx.show().siblings().hide();
   };
 
   var render2 = Handlebars.compile($('#template2').text());
 
-
   projView.index = function() {
+    console.log('Start aboutView.index');
     aboutView.index();
 
     reProj();
