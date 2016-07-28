@@ -11,9 +11,9 @@
       console.log(projs.all);
       if($projx.hasClass('pageInit')) {
         $projx.toggleClass('pageInit');
-        projs.getProjects(projView.index);//DONE: create projView.index in a file called   projView.js
-        console.log('projControl.index finished');
       }
+      projs.getProjects(projView.index);//DONE: create projView.index in a file called   projView.js
+      console.log('projControl.index finished');
     }
   };
   module.projControl = projControl;
