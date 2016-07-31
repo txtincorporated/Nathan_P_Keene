@@ -1,0 +1,28 @@
+/* Sandbox for sboxSlider */
+.displayInline {
+  position: fixed;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+}
+
+#div01 {
+  background-color: maroon;
+
+}
+#div02 {
+  background-color: gold;
+
+}
+#div03 {
+  background-color: magenta;
+
+}
+
+#div04 {
+  background-color: lime;
+
+}
