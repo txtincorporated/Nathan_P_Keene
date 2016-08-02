@@ -10,6 +10,17 @@ html {
     height: 33%;
     width: 100%;
     padding: 0 0 0 0;
+    background-color: rgb(68, 71, 79);
+    box-shadow: 0.25px 0.25px 5px white;
+  }
+
+  .skills {
+    margin: 15% 5% auto auto;
+    float: right;
+    max-width: 20%;
+    max-height: 20%;
+    /*display: inline-block;*/
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   }
 
   .imgHolder {
@@ -24,10 +35,11 @@ html {
     position: fixed;
     top: 0;
     left: 0;
+    width: 100;
     font-family: Signika, sans-serif;
     color: white;
-    opacity: 0.75;
-    text-shadow: 0.25px 0.25px 25px rgba(52, 37, 22, 0.95);
+    opacity: 0.5;
+    text-shadow: 0px 0px 2px black;
   }
 
   #name {
@@ -38,7 +50,8 @@ html {
   }
 
   .social {
-    width:10%;
+    max-width:10%;
+    max-height:10%;
     float: right;
     text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
   }
