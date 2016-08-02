@@ -10,6 +10,8 @@ html {
     height: 33%;
     width: 100%;
     padding: 0 0 0 0;
+    background-color: rgb(68, 71, 79);
+    box-shadow: 0.25px 0.25px 5px white;
   }
 
   .imgHolder {
@@ -26,8 +28,8 @@ html {
     left: 0;
     font-family: Signika, sans-serif;
     color: white;
-    opacity: 0.75;
-    text-shadow: 0.25px 0.25px 25px rgba(52, 37, 22, 0.95);
+    opacity: 0.5;
+    text-shadow: 0px 0px 2px black;
   }
 
   #name {
