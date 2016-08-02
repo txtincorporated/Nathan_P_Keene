@@ -6,15 +6,12 @@
     $projx.show().siblings().hide();
 
     if (!projs.all[0]) {
-      if($projx.hasClass('pageInit')) {
-        $projx.toggleClass('pageInit');
-        projs.getProjects(projView.index);
-      }
+      projs.getProjects(projView.index);
       return;
     }
 
     projView.index();
-    
+
   };
   module.projControl = projControl;
 })(window);

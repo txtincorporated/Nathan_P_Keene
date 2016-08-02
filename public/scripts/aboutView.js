@@ -3,11 +3,53 @@
 
   var render1 = Handlebars.compile($('#template1').text());
 
-  aboutView.index = function() {
+  var reImg = function() {
+    var $slideShow = $('.l-slider');
+    $slideShow.find('div').empty();
+  };
 
-    $('.l-slider div').append(
-      projs.with('homepage').map(render1)
-    );
+  //FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
+  var slideMe = function(callback) {
+    // console.log('Start slideMe');
+    var $lastInd = $('.imgHolder a:last-child').index();
+    $('.imgHolder img').each(function(index) {
+      $(this).delay(($lastInd - index) * 5000).fadeOut(5000);
+    }).promise().
+    done(function() {
+      $('.imgHolder img').delay(300).css('display', '');
+      $('.imgHolder').hide();
+      callback();
+    });
+  };
+
+  //FUNCTION C: CALLBACK TO RE-CUE SLIDESHOW
+  var reRun = function() {
+    // console.log('Callback fired');
+    $('.imgHolder').fadeIn(5000).promise().
+    done(function() {
+      slideOver();
+    });
+  };
+
+  //FUNCTION D: RUNS FUNCTION A
+  var slideOver = function() {
+    // console.log('Slideshow resart');
+    slideMe(reRun);
+  };
+
+  aboutView.index = function() {
+    var $about = $('#about');
+    if($about.hasClass('pageInit')) {
+      $about.toggleClass('pageInit');
+
+      reImg();
+
+      $('.l-slider div').append(
+        projs.with('homepage').map(render1)
+      );
+
+      slideMe(reRun);
+    }
   };
 
   module.aboutView = aboutView;
