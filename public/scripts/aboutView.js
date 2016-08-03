@@ -13,7 +13,7 @@
     // console.log('Start slideMe');
     var $lastInd = $('.imgHolder a:last-child').index();
     $('.imgHolder img').each(function(index) {
-      $(this).delay(($lastInd - index) * 5000).fadeOut(5000);
+      $(this).delay(($lastInd - index) * 6500).fadeOut(6500);
     }).promise().
     done(function() {
       $('.imgHolder img').delay(300).css('display', '');
@@ -25,7 +25,7 @@
   //FUNCTION C: CALLBACK TO RE-CUE SLIDESHOW
   var reRun = function() {
     // console.log('Callback fired');
-    $('.imgHolder').fadeIn(5000).promise().
+    $('.imgHolder').fadeIn(6500).promise().
     done(function() {
       slideOver();
     });
