@@ -8,19 +8,15 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 768;
-    max-height: 528;
-    height: 36%;
-    padding: 0 0 0 0;
+    max-width: 768px;
     background-color: rgb(68, 71, 79);
     box-shadow: 0.25px 0.25px 5px white;
   }
 
   .skillsIcons {
-    margin: 15% 5% auto auto;
+    margin: 15% 5% 20px auto;
     float: right;
-    max-width: 20%;
-    max-height: 20%;
+    width: 10%;
     /*display: inline-block;*/
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   }
@@ -65,8 +61,6 @@ html {
 
   .wk {
     position: fixed;
-    /*top: 0;
-    left: 0;*/
     width: 100%;
     max-width: 768px;
   }
