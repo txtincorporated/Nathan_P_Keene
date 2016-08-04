@@ -8,6 +8,8 @@ html {
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 768;
+    max-height: 528;
     height: 36%;
     padding: 0 0 0 0;
     background-color: rgb(68, 71, 79);

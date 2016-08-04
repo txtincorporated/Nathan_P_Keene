@@ -24,7 +24,6 @@
 
   //FUNCTION C: CALLBACK TO RE-CUE SLIDESHOW
   var reRun = function() {
-    console.log('Callback fired');
     $('.imgHolder').delay(5000).fadeIn(2000).promise().
     done(function() {
       slideOver();
