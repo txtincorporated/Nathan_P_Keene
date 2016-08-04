@@ -14,7 +14,7 @@ html {
     box-shadow: 0.25px 0.25px 5px white;
   }
 
-  .skills {
+  .skillsIcons {
     margin: 15% 5% auto auto;
     float: right;
     max-width: 20%;
@@ -35,7 +35,7 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100;
+    width: 100%;
     font-family: Signika, sans-serif;
     color: white;
     opacity: 0.5;
@@ -50,8 +50,10 @@ html {
   }
 
   .social {
-    max-width:10%;
-    max-height:10%;
+    width: 10%;
+    height: 10%;
+    max-width:30px;
+    max-height:30px;
     float: right;
     text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
   }
@@ -64,7 +66,7 @@ html {
     /*top: 0;
     left: 0;*/
     width: 100%;
-    max-height: 481px;
+    max-width: 768px;
   }
 
   #sections {
