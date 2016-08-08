@@ -1,0 +1,36 @@
+/* Sandbox for positioning */
+body {
+  height: 990px;
+}
+
+.upper {
+  border: 2px solid;
+}
+
+.lower {
+  border: 2px dotted;
+}
+
+.outer {
+  border-color: blue;
+  margin: 5%;
+  height: 50%;
+  padding: 10%;
+}
+
+.inner {
+  border-color: green;
+  height: 50%;
+  padding: 10%;
+}
+
+.innermost {
+  border-color: red;
+  height: 50%;
+  padding: 10%;
+  text-align: center;
+}
+
+.constrain {
+  width=100%;
+}
