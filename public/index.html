@@ -12,10 +12,11 @@
     </script>
     <script id="template2" type="text/x-handlebars-template">
       <li>
-        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        <a href="{{homepage}}" target="_blank"><h3>{{name}}</h3></a>
         <p>Description:<br> {{description}}</p>
         <p>Language:<br> {{language}}</p>
         <p>Created:<br> {{formatDate created_at}}</p>
+        <p>Deployed at: <a href="{{homepage}}"></a>{{homepage}}</p>
         <p>Last updated:<br> {{formatDate updated_at}}</p>
         {{#if watchers_count}}
         <p>{{watchers_count}} watching this repo</p>
@@ -51,7 +52,7 @@
               PROJECT IMAGES
             </div>
             <nav>
-              <a href="/"><h1 class="l-semitrans" id="name">&nbspNathan P. Keene</h1></a>              
+              <a href="/"><h1 class="l-semitrans" id="name">&nbspNathan P. Keene</h1></a>
             </nav>
           </a>
         </section>
