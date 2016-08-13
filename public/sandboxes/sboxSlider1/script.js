@@ -1,6 +1,6 @@
 // Sandbox for sboxSlider
 //FUNCTION A: INIT SLIDE SHOW
-  //.l-slider on load
+  //#l-slider on load
 $(this).on('load', function() {
   var $imgBox = $('.imgBox div');
   $imgBox.hide();  //hide images

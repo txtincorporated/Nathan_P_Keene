@@ -1,96 +1,158 @@
 @import url(https://fonts.googleapis.com/css?family=Signika:400,700|Slabo+27px);
 
 html {
-  background-color: rgba(52, 37, 22, 1.0);
+  background: rgb(250, 255, 248);
 }
 
-  .l-slider {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    max-width: 768px;
-    background-color: rgb(68, 71, 79);
-    box-shadow: 0.25px 0.25px 5px white;
-  }
+#main {
+  min-width: 100%;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
 
-  .skillsIcons {
-    margin: 15% 5% 20px auto;
-    float: right;
-    width: 10%;
-    /*display: inline-block;*/
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-  }
+#main > article {
+  width: 100%;
+  max-width: 768px;
+  min-height: 990px;
+  margin: 0 auto;
+  padding: 0;
+  background: rgba(52, 37, 22, 1.0);
+  overflow: hidden;
+  box-shadow: 0 0 250px rgba(194, 255, 179, 0.3);
+}
 
-  .imgHolder {
-    height: 100%;
-    width: 100%;
-  }
+.skillsFixed {
+  width: 100%;
+  min-width: 240px;
+  max-width: 768px;
+  height: 100%;
+  position: fixed;
+}
 
-  /*#navLinks {
-  }*/
+.skillsRel {
+  width: 100%;
+  padding-bottom: 62.5%;
+  position: relative;
+}
 
-  .l-semitrans {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    font-family: Signika, sans-serif;
-    color: white;
-    opacity: 0.5;
-    text-shadow: 0px 0px 2px black;
-  }
+.skillsAbs {
+  min-width: 100%;
+  max-width: 768px;
+  min-height: 100%;
+  position: absolute;
+  background: rgb(68, 71, 79);
+  box-shadow: 0 1px 5px white;
+}
 
-  #name {
-    /*width: 50%;*/
-    font-size: 2rem;
-    margin-top: 0;
-    /*white-space: nowrap;*/
-  }
+.skillsHolder {
+  min-width: 100%;
+  max-width: 768px;
+  min-height: 100%;
+  position: absolute;
+  /*display: none;*/
+}
 
-  .social {
-    width: 10%;
-    height: 10%;
-    max-width:30px;
-    max-height:30px;
-    float: right;
-    text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
-  }
+.row1 {
+  margin: 15% 0 0 0;
+  order: 1;
+}
 
-  /*#socIcons {
-  }*/
+.row2 {
+  margin: 5% 0 0 0;
+  order: 2;
+}
 
-  .wk {
-    position: fixed;
-    width: 100%;
-    max-width: 768px;
-  }
+.skillsIcons {
+  max-width: 10%;
+  /*display: inline-block;*/
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
 
-  #sections {
-    margin-top: 70%;
-    padding-left: 1%;
-    color: rgba(245, 254, 243, 0.95);
-    text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
-  }
+.row1Icons {
+  margin: 0 7.5% 0 7%;
+}
 
-  #sections p {
-    font-family: 'Slabo 27px', serif;
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    color: rgba(245, 254, 243, 0.95);
-  }
+.row2Icons {
+  margin: 0 11% 0 11%;
+}
 
-  #sections h1, h2, h3 {
-    font-family: Signika, sans-serif;
-    margin-bottom: .33rem;
-  }
+#l-slider {
+  width: 100%;
+  padding-bottom: 62.5%;
+  position: relative;
+}
 
-  #sections a {
-    text-decoration: none;
-    text-shadow: 1px, 1px, 1.5px, black;
-    text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
-    color: rgba(245, 254, 243, 0.90);
-  }
+.imgHolder {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+/*#navLinks {
+}*/
+
+.l-semitrans {
+  position: fixed;
+  width: 100%;
+  font-family: Signika, sans-serif;
+  color: white;
+  opacity: 0.5;
+  text-shadow: 0px 0px 2px black;
+}
+
+#name {
+  /*width: 50%;*/
+  font-size: 2rem;
+  margin-top: 0;
+  /*white-space: nowrap;*/
+}
+
+.social {
+  width: 10%;
+  height: 10%;
+  max-width:30px;
+  max-height:30px;
+  float: right;
+  text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
+}
+
+/*#socIcons {
+}*/
+
+.wk {
+  position: fixed;
+  width: 100%;
+  max-width: 768px;
+  /*display: none;*/
+}
+
+#sections {
+  /*margin-top: 70%;*/
+  padding-left: 1%;
+  color: rgba(245, 254, 243, 0.95);
+  text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
+}
+
+#sections p {
+  font-family: 'Slabo 27px', serif;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: rgba(245, 254, 243, 0.95);
+}
+
+#sections h1, h2, h3 {
+  font-family: Signika, sans-serif;
+  margin-bottom: .33rem;
+}
+
+#sections a {
+  text-decoration: none;
+  text-shadow: 1px, 1px, 1.5px, black;
+  text-shadow: 0.25px 0.25px 25px rgba(56, 55, 57, 0.95);
+  color: rgba(245, 254, 243, 0.90);
+}
 
 .l-nav-bar {
   position: fixed;

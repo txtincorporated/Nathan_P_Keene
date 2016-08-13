@@ -24,46 +24,63 @@
     </script>
   </head>
   <body>
-  <nav class="l-slider">
-    <img class="skillsIcons" src="images/githubBlack.png" alt="GitHub" />
-    <img class="skillsIcons" src="images/json.png" alt="JSON" />
-    <img class="skillsIcons" src="images/ajax.png" alt="AJAX" />
-    <img class="skillsIcons" src="images/jQuery.png" alt="jQuery" />
-    <img class="skillsIcons" src="images/css3.png" alt="CSS" />
-    <img class="skillsIcons" src="images/html5.png" alt="HTML" />
-    <img class="skillsIcons" src="images/jslogo.png" alt="JavaScript" />
-    <a href="/projx">
-      <div class="imgHolder">
-      PROJECT IMAGES
-      </div>
-    </a>
-  </nav>
-    <div class="l-semitrans">
-      <a href="https://www.linkedin.com/in/nathankeene"><img class="social" src="images/linkedin.png" alt="linkedIn" /></a>
-      <a href="https://txtincorporated.github.io"><i class="social fa fa-github-alt" aria-hidden="false"></i></a>
-    </div>
-    <a href="/"><h1 class="l-semitrans" id="name">Nathan P. Keene</h1></a>
-    <section id="sections">
-      <section id="projects">
-        <article>
-          <h1>Selected Projects on GitHub</h1>
-          <p id="totalSize"></p>
-          <ul class="noBullets">
-            PROJECTS GO HERE
-          </ul>
-        </article>
-      </section>
-      <section id="about" class="pageInit">
-          <div>
-            <h2>ABOUT</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-          <div>
-            <h2>CONTACT</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
+    <div id="main">
+      <article>
+        <div class="skillsFixed">
+          <a href="/projx"><div class="skillsRel">
+            <div class="skillsAbs">
+              <nav class="skillsHolder">
+                <section class="row1">
+                  <img class="skillsIcons row1Icons" src="images/jslogo.png" alt="JavaScript" />
+                  <img class="skillsIcons row1Icons" src="images/jQuery.png" alt="jQuery" />
+                  <img class="skillsIcons row1Icons" src="images/json.png" alt="JSON" />
+                  <img class="skillsIcons row1Icons" src="images/ajax.png" alt="AJAX" />
+                </section>
+                <section class="row2">
+                  <img class="skillsIcons row2Icons" src="images/githubBlack.png" alt="GitHub" />
+                  <img class="skillsIcons row2Icons" src="images/html5.png" alt="HTML" />
+                  <img class="skillsIcons row2Icons" src="images/css3.png" alt="CSS" />
+                </section>
+              </nav>
+            </div>
+          </div></a>
+        </div>
+        <section id="l-slider">
+          <a href="/projx">
+            <div class="imgHolder">
+              PROJECT IMAGES
+            </div>
+          </a>
+          <a href="/"><h1 class="l-semitrans" id="name">Nathan P. Keene</h1></a>
         </section>
-    </section>
+        <!-- <a href="/"><h1 class="l-semitrans" id="name">Nathan P. Keene</h1></a> -->
+        <!-- <div class="l-semitrans">
+        <a href="https://www.linkedin.com/in/nathankeene"><img class="social" src="images/linkedin.png" alt="linkedIn" /></a>
+        <a href="https://txtincorporated.github.io"><i class="social fa fa-github-alt" aria-hidden="false"></i></a>
+        </div> -->
+        <section id="sections">
+          <section id="projects">
+            <article>
+              <h1>Selected Projects on GitHub</h1>
+              <p id="totalSize"></p>
+              <ul class="noBullets">
+                PROJECTS GO HERE
+              </ul>
+            </article>
+          </section>
+          <section id="about" class="pageInit">
+            <div>
+              <h2>ABOUT</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div>
+              <h2>CONTACT</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </section>
+        </section>
+      </article>
+    </div>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
