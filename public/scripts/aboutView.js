@@ -8,6 +8,17 @@
     $slideShow.find('div').empty();
   };
 
+  $(document).ready(function() {
+    console.log('Loaded');
+    $('#name').animate({marginTop: '+=2.5rem'}, 'slow').delay(7000).fadeOut(6500).animate({marginTop: '-=2.5rem'}, 2500).fadeIn();
+  }
+);
+
+  $('#l-slider').on('click', function() {
+    console.log('Clicked');
+    $('#name').animate({marginTop: '+=2.5rem'}, 'fast').delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).css({opacity: '0.65'});
+  });
+
   //FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
   var slideMe = function(callback) {
     // console.log('Start slideMe');
