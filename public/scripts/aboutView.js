@@ -4,7 +4,7 @@
   var render1 = Handlebars.compile($('#template1').text());
 
   var reImg = function() {
-    var $slideShow = $('.l-slider');
+    var $slideShow = $('#l-slider');
     $slideShow.find('div').empty();
   };
 
@@ -17,14 +17,14 @@
     }).promise().
     done(function() {
       $('.imgHolder img').delay(300).css('display', '');
-      $('.imgHolder').hide();
+      $('.imgHolder').css('opacity', 0);
       callback();
     });
   };
 
   //FUNCTION C: CALLBACK TO RE-CUE SLIDESHOW
   var reRun = function() {
-    $('.imgHolder').delay(5000).fadeIn(2000).promise().
+    $('.imgHolder').delay(5000).animate({opacity: 1}, 2000).promise().
     done(function() {
       slideOver();
     });
@@ -43,7 +43,7 @@
 
       reImg();
 
-      $('.l-slider div').append(
+      $('#l-slider div').append(
         projs.with('homepage').map(render1)
       );
 
