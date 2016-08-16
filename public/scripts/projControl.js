@@ -3,6 +3,7 @@
   projControl.index = function() {
     var $projx = $('#projects');
 
+    $('html, body').animate({scrollTop: 0}, 0);
     $projx.show().siblings().hide();
 
     if (!projs.all[0]) {

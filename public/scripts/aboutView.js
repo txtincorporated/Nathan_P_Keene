@@ -14,13 +14,9 @@
   }
 );
 
-  $('#l-slider').hover(function() {
-    $('#shadow').show().fadeOut(500);
-  });
-
   $('#l-slider').on('click', function() {
     console.log('Clicked');
-    $('#shadow').show().delay(800).fadeOut(1500);
+    $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
     $('#name').animate({marginTop: '+=2.5rem'}, 'fast').delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).css('opacity', 0.98);
   });
 

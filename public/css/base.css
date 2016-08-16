@@ -97,7 +97,7 @@ html {
   height: 100%;
   width: 100%;
   box-shadow: inset 0 0 20px blue;
-  display: none;
+  opacity: 0;
   position: absolute;
 }
 
@@ -163,10 +163,6 @@ html {
 }
 
 #sections a {
-  color: rgba(245, 254, 243, 0.97);
-}
-
-#sections a:link, #sections a:visited {
   text-decoration: none;
   text-shadow: 0.25px 0.25px 10px blue;
   color: rgba(245, 254, 243, 0.97);
@@ -174,16 +170,12 @@ html {
   -webkit-transition: color 1s linear 1s, text-shadow 1s linear 1s;
 }
 
-#sections a:hover, #sections a:active {
+#sections a:hover {
   color: yellow;
   text-shadow: 0.25px 0.25px 1px red;
   transition: color .01s linear, text-shadow .01s linear;
   -webkit-transition: color .01s linear, text-shadow .01s linear;
 }
-
-/*#sections a:active {
-  color: yellow;
-}*/
 
 #fourOfour {
   text-align: center;
