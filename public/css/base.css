@@ -30,6 +30,10 @@ html {
   position: fixed;
 }
 
+.skillsFixed:hover {
+  border: 2px solid blue;
+}
+
 .skillsRel {
   width: 100%;
   padding-bottom: 62.5%;
@@ -79,21 +83,22 @@ html {
 #l-slider {
   width: 100%;
   padding-bottom: 62.5%;
+  border:;
   position: relative;
+}
+
+#l-slider:hover {
+  border: 2px solid blue;
+}
+
+#l-slider:active {
+  border: 2px solid blue;
 }
 
 .imgHolder {
   height: 100%;
   width: 100%;
   position: absolute;
-}
-
-.imgHolder:hover {
-  border: 2px solid blue;
-}
-
-.imgHolder:active {
-  border: 2px solid blue;
 }
 
 #l-slider nav {
@@ -126,7 +131,6 @@ html {
   color: yellow;
 }
 
-
 .social {
   width: 10%;
   height: 10%;
@@ -140,7 +144,6 @@ html {
   position: fixed;
   width: 100%;
   max-width: 768px;
-  /*display: none;*/
 }
 
 #sections {
@@ -164,18 +167,27 @@ html {
 }
 
 #sections a {
-  text-decoration: none;
-  text-shadow: 0.25px 0.25px 10px blue;
   color: rgba(245, 254, 243, 0.97);
 }
 
-#sections a:hover {
-  color: yellow;
+#sections a:link, #sections a:visited {
+  text-decoration: none;
+  text-shadow: 0.25px 0.25px 10px blue;
+  color: rgba(245, 254, 243, 0.97);
+  transition: color 1s linear 1s, text-shadow 1s linear 1s;
+  -webkit-transition: color 1s linear 1s, text-shadow 1s linear 1s;
 }
 
-#sections a:active {
+#sections a:hover, #sections a:active {
   color: yellow;
+  text-shadow: 0.25px 0.25px 1px red;
+  transition: color .01s linear, text-shadow .01s linear;
+  -webkit-transition: color .01s linear, text-shadow .01s linear;
 }
+
+/*#sections a:active {
+  color: yellow;
+}*/
 
 #fourOfour {
   text-align: center;
