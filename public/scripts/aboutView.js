@@ -14,9 +14,14 @@
   }
 );
 
+  $('#l-slider').hover(function() {
+    $('#shadow').show().fadeOut(500);
+  });
+
   $('#l-slider').on('click', function() {
     console.log('Clicked');
-    $('#name').animate({marginTop: '+=2.5rem'}, 'fast').delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).css({opacity: '0.98'});
+    $('#shadow').show().delay(800).fadeOut(1500);
+    $('#name').animate({marginTop: '+=2.5rem'}, 'fast').delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).css('opacity', 0.98);
   });
 
   //FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
