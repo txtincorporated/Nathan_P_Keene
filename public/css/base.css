@@ -30,10 +30,6 @@ html {
   position: fixed;
 }
 
-.skillsFixed:hover {
-  border: 2px solid blue;
-}
-
 .skillsRel {
   width: 100%;
   padding-bottom: 62.5%;
@@ -83,16 +79,8 @@ html {
 #l-slider {
   width: 100%;
   padding-bottom: 62.5%;
-  border:;
+  overflow: hidden;
   position: relative;
-}
-
-#l-slider:hover {
-  border: 2px solid blue;
-}
-
-#l-slider:active {
-  border: 2px solid blue;
 }
 
 .imgHolder {
@@ -102,6 +90,14 @@ html {
 }
 
 #l-slider nav {
+  position: absolute;
+}
+
+#shadow {
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0 0 20px blue;
+  display: none;
   position: absolute;
 }
 
