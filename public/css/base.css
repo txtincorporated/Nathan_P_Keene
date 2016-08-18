@@ -54,26 +54,26 @@ html {
 }
 
 .row1 {
-  margin: 15% 0 0 0;
+  margin: 13% 0 0 0;
   order: 1;
 }
 
 .row2 {
-  margin: 5% 0 0 0;
+  margin: 13% 0 0 0;
   order: 2;
 }
 
 .skillsIcons {
-  max-width: 10%;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  max-width: 12%;
+  /*box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);*/
 }
 
 .row1Icons {
-  margin: 0 7.5% 0 7%;
+  margin: 0 3.5% 0 7.5%;
 }
 
 .row2Icons {
-  margin: 0 11% 0 11%;
+  margin: 0 10% 0 10%;
 }
 
 #l-slider {
