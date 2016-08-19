@@ -10,14 +10,19 @@
 
   $(document).ready(function() {
     console.log('Loaded');
-    $('#name').animate({marginTop: '+=2.5rem'}, 'slow').delay(7000).fadeOut(6500).animate({marginTop: '-=2.5rem'}, 2500).fadeIn();
+    $('#name').animate({marginTop: '+=2.5rem'}, 'slow').delay(7000).animate({marginTop: '-=2.5rem'}, 6500).animate({opacity: 0});
   }
 );
+
+  $('#name').on('click', function() {
+    aboutControl.index();
+    return false;
+  });
 
   $('#l-slider').on('click', function() {
     console.log('Clicked');
     $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
-    $('#name').animate({marginTop: '+=2.5rem'}, 'fast').delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).css('opacity', 0.98);
+    $('#name').finish().animate({opacity: 1, marginTop: '+=2.5rem'}, 'fast').delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500);
   });
 
   //FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
