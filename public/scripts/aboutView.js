@@ -10,20 +10,28 @@
 //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
     console.log('Loaded');
-    $('#name').animate({marginTop: '+=2.5rem'}, 'slow').delay(7000).animate({marginTop: '-=2.5rem'}, 6500).animate({opacity: 0});
+    $('#name').addClass('down').animate({marginTop: '+=2.5rem'}, 2500, function() {
+      $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 2500);
+    }).delay(7000).animate({marginTop: '-=2.5rem'}, 6500).animate({opacity: 0}).promise().
+    done(function() {
+      $('#name').removeClass('down');
+    });;
   }
 );
-//Navigate to landing "page" on click targeting h1 #name
-  $('#name').on('click', function() {
-    location.assign('/');
-    // aboutControl.index();
-    return false;
-  });
+
 //On click targeting  section .l-slider, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
-  $('#l-slider').on('click', function() {
+  $('#shadow').on('click', function() {
     console.log('Clicked');
+    if ($('#name').hasClass('down')) {
+      console.log('Name is down');
+      $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
+      return;
+    }
     $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
-    $('#name').finish().animate({opacity: 1, marginTop: '+=2.5rem'}, 2500).delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500);
+    $('#name').addClass('down').animate({opacity: 1, marginTop: '+=2.5rem'}, 2500).delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).promise().
+    done(function() {
+      $('#name').removeClass('down');
+    });
   });
 
   // //REFORMAT/REPROGRAM POSTER-IMAGE VIEWER ON SWITCH FROM PORTRAIT TO LANDSCAPE ORIENTATION IN MOBILE DEVICES
@@ -43,7 +51,7 @@
   //   callback();
   // };
   // reorientate(setOtn);
-  
+
   //POSTER-IMAGE VIEWER FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
   var slideMe = function(callback) {
     // console.log('Start slideMe');
@@ -82,7 +90,9 @@
 
       $('#l-slider div').append(
         projs.with('homepage').map(render1)//Compiles render1 Handlebars template to populate poster-images into the image-player
-      );
+      ).fadeIn('slow');
+
+      $('.skillsFixed').fadeIn('slow');
 
       slideMe(reRun);//Re-starts slideshow and has itself re-fired at end by passing callback function to it that re-invokes slideMe in turn
     }

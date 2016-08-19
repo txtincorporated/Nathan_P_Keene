@@ -89,7 +89,7 @@ html {
   position: absolute;
 }
 
-#l-slider nav {
+#l-slider > nav {
   position: absolute;
 }
 
