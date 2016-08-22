@@ -34,23 +34,49 @@
     });
   });
 
-  // //REFORMAT/REPROGRAM POSTER-IMAGE VIEWER ON SWITCH FROM PORTRAIT TO LANDSCAPE ORIENTATION IN MOBILE DEVICES
-  //   //Detect device-orientation
-  // var orientate = function(callback) {
-  //
+  //RECONFIGURE POSTER-IMAGE VIEWER AS NEEDED IN MOBILE DEVICES
+  var setOtn = function() {
+    var $otn = (window.orientation);
+    if ($otn === -90) {
+      console.log('Orientation: ' + window.orientation);
+      setLandscape();
+      return false;
+    } else if($otn === 0) {
+      console.log('portrait orientation');
+      setPortrait();
+    }
+  };
+
+  var setLandscape = function() {
+    // CONSOLE-TEST
+    console.log('setLandscape');
+    $('.skillsFixed, #l-slider').css('opacity', '0');
+    //animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
+    //  -delay several seconds, then animate .skillsFixed, .l-slider, #name R margin 95%
+    //  -set .skillsFixed display: inline
+    //  -animate .skillsFixed, #name display: none
+    //  -toggle visibility of lefthand "tab" div in .skillsAbs to 'on' (build this w/ W:H 1:1, border-rad. 100%, vert. align middle, and width 10% inside a container div w/ width 5% and overflow hidden)
+    // return false;
+  };
+
+  var setPortrait = function() {
+    console.log('setPortrait');
+    $('#shadow').css({opacity: 1, background: 'blue'});
+    $('.skillsFixed, #l-slider').css('opacity', '1');
+  };
+
+  //  -on click to "tab", roll everything back out and setPortrait() so it overlays content, drop nameplate, flash #shadow, wait for a few seconds and then (here comes the callback) exeunt omnes stage L. once more
   // };
-  // orientate(setOtn);
-  //
-  //   //Set orientation-specific UI format accordingly
-  // var setOtn = function() {
-  //
-  // };
-  //   //Detect change in device-orientation
-  // var reOrientate = function(callback) {
-  //   //...
-  //   callback();
-  // };
-  // reorientate(setOtn);
+
+  var otnDetect = function() {
+    $('page').load(setOtn());
+    $(window).on('orientationchange', function() {
+      console.log('orientation change');
+      setOtn();
+    });
+  };
+
+  otnDetect();
 
   //POSTER-IMAGE VIEWER FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
   var slideMe = function(callback) {
