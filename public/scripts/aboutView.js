@@ -48,21 +48,25 @@
   };
 
   var setLandscape = function() {
+    //animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
     // CONSOLE-TEST
     console.log('setLandscape');
-    $('.skillsFixed, #l-slider').css('opacity', '0');
-    //animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
-    //  -delay several seconds, then animate .skillsFixed, .l-slider, #name R margin 95%
-    //  -set .skillsFixed display: inline
-    //  -animate .skillsFixed, #name display: none
-    //  -toggle visibility of lefthand "tab" div in .skillsAbs to 'on' (build this w/ W:H 1:1, border-rad. 100%, vert. align middle, and width 10% inside a container div w/ width 5% and overflow hidden)
-    // return false;
+    //  -delay a couple seconds, then animate .skillsFixed, .l-slider, #name L margin 95%
+    $('.skillsFixed, #l-slider, .wk, #name').finish().delay(2000).animate({marginLeft: '95%'}, 2500);
+
+    //  -set #l-slider display: inline, opacity: 0
+    $('#l-slider').css({display: 'none'}).promise().
+    done(function() {
+      //  -toggle visibility of lefthand "tab" div in .skillsAbs to 'on' (build this w/ W:H 1:1, border-rad. 100%, vert. align middle, and width 10% inside a container div w/ width 5% and overflow hidden)
+      // return false;
+      $('.sliderTab').animate({opacity: 1}, 800);
+    });
   };
 
   var setPortrait = function() {
     console.log('setPortrait');
-    $('#shadow').css({opacity: 1, background: 'blue'});
-    $('.skillsFixed, #l-slider').css('opacity', '1');
+    $('.skillsFixed, #l-slider, .wk').animate({opacity: 1}, 2500);
+    $('#shadow').animate({opacity: 1, backgroundColor: 'rgb(0,0,255)'}, 2500);
   };
 
   //  -on click to "tab", roll everything back out and setPortrait() so it overlays content, drop nameplate, flash #shadow, wait for a few seconds and then (here comes the callback) exeunt omnes stage L. once more

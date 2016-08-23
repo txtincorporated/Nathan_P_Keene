@@ -55,6 +55,34 @@ html {
   box-shadow: 0 1px 5px white;
 }
 
+.skillsAbs > div {
+  height: 52px;
+  width: 28px;
+  overflow: hidden;
+  position: fixed;
+  margin-top: 24%;
+}
+
+.sliderTab {
+  height: 50px;
+  width: 50px;
+  margin-top: 1px;
+  position: relative;
+  border-radius: 50%;
+  background: black;
+  box-shadow: 0 0 2px yellow;
+  opacity: 0;
+}
+
+.sliderTab > div {
+  height: 25px;
+  width: 25px;
+  margin: 23% auto auto 20%;
+  position: absolute;
+  transform: rotate(45deg);
+  box-shadow: -1px 1px 1px rgba(255,255,0,0.75);
+}
+
 .skillsHolder {
   min-width: 100%;
   max-width: 768px;
@@ -153,6 +181,7 @@ html {
   position: fixed;
   width: 100%;
   max-width: 768px;
+  /*opacity: 0;*/
 }
 
 #sections {
