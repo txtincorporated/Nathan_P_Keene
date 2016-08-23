@@ -7,6 +7,7 @@
     var $slideShow = $('#l-slider');
     $slideShow.find('div').empty();
   };
+
 //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
     console.log('Loaded');
@@ -51,22 +52,53 @@
     //animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
     // CONSOLE-TEST
     console.log('setLandscape');
-    //  -delay a couple seconds, then animate .skillsFixed, .l-slider, #name L margin 95%
-    $('.skillsFixed, #l-slider, .wk, #name').finish().delay(2000).animate({marginLeft: '95%'}, 2500);
 
-    //  -set #l-slider display: inline, opacity: 0
-    $('#l-slider').css({display: 'none'}).promise().
+    //  -delay a couple seconds, then animate .skillsFixed, .l-slider, #name L margin 95%
+    $('#sections, #shadow').fadeOut('fast'); //fadeIn #sections after shutting off #l-slider
+    $('.skillsFixed, .wk, #name, #shadow').animate({marginLeft: '95%'}, {duration: 1200, queue: false});
+    //  -Remove #l-slider from document flow
+    $('#l-slider').fadeOut({duration: 800, queue: false}).promise().
     done(function() {
-      //  -toggle visibility of lefthand "tab" div in .skillsAbs to 'on' (build this w/ W:H 1:1, border-rad. 100%, vert. align middle, and width 10% inside a container div w/ width 5% and overflow hidden)
-      // return false;
-      $('.sliderTab').animate({opacity: 1}, 800);
+      //  -display lefthand "tab" div in .skillsAbs and simultaneously fadeIn content
+      $('html, body').animate({scrollTop: 0});
+      $('#sections').fadeIn(800);
+      $('.skillsAbs > div').show().animate({opacity: 1}, {duration: 800, queue: false}).on('click', function() {
+        landSlider();
+      });
     });
   };
 
-  var setPortrait = function() {
+  var landSlider = function() {
+    $('.sliderTab').css({background: 'yellow', boxShadow: '0 0 2px black'});
+    $('.skillsAbs > div').css('border-right', '1px solid rgba(0, 0, 0, 0.5)');
+    $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(0,0,0,0.75)');
+    setPortrait();
+    window.setTimeout(setLandscape, 5000);
+    $('.sliderTab').css({background: 'black', boxShadow: '0 0 2px yellow'});
+    $('.skillsAbs > div').css('border-right', '1px solid rgba(255, 255, 0, 0.5)');
+    $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(255,255,0,0.75)');
+  };
+
+  var setPortrait = function(callback) {
     console.log('setPortrait');
-    $('.skillsFixed, #l-slider, .wk').animate({opacity: 1}, 2500);
-    $('#shadow').animate({opacity: 1, backgroundColor: 'rgb(0,0,255)'}, 2500);
+    // $('.skillsFixed, #l-slider, .wk').animate({opacity: 1}, 2500);
+    // $('#shadow').animate({opacity: 1, backgroundColor: 'rgb(0,0,255)'}, 2500);
+    // var $sliderLeft = $('#l-slider').css('margin-left','95%');
+    if ($('#about').hasClass('pageInit')) {
+      return false;
+    }
+    // $('#sections').fadeOut(800);
+    $('#shadow').fadeIn();
+    $('.skillsAbs > div').fadeOut(1000);
+    $('#l-slider').show();
+    $('#sections').fadeIn();
+    $('#l-slider').animate({marginLeft: 0}, 1000);
+    $('.skillsFixed, .wk, #name, #shadow').finish().animate({marginLeft: 0}, 1000);
+    $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
+    $('#name').addClass('down').animate({opacity: 1, marginTop: '+=2.5rem'}, 2500).delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).promise().
+    done(function() {
+      $('#name').removeClass('down');
+    });
   };
 
   //  -on click to "tab", roll everything back out and setPortrait() so it overlays content, drop nameplate, flash #shadow, wait for a few seconds and then (here comes the callback) exeunt omnes stage L. once more

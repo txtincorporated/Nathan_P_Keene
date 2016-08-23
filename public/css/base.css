@@ -61,7 +61,13 @@ html {
   overflow: hidden;
   position: fixed;
   margin-top: 24%;
+  border-right: 1px solid rgba(255, 255, 0, 0.5);
+  opacity: 0;
 }
+
+/*.skillsAbs > div:hover {
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
+}*/
 
 .sliderTab {
   height: 50px;
@@ -71,8 +77,13 @@ html {
   border-radius: 50%;
   background: black;
   box-shadow: 0 0 2px yellow;
-  opacity: 0;
+  opacity: inherit;
 }
+
+/*.sliderTab:hover {
+  background: yellow;
+  box-shadow: 0 0 2px black;
+}*/
 
 .sliderTab > div {
   height: 25px;
@@ -82,6 +93,10 @@ html {
   transform: rotate(45deg);
   box-shadow: -1px 1px 1px rgba(255,255,0,0.75);
 }
+
+/*.sliderTab > div:hover {
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.75);
+}*/
 
 .skillsHolder {
   min-width: 100%;
