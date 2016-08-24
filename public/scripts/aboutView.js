@@ -16,7 +16,7 @@
     }).delay(7000).animate({marginTop: '-=2.5rem'}, 6500).animate({opacity: 0}).promise().
     done(function() {
       $('#name').removeClass('down');
-    });;
+    });
   }
 );
 
@@ -37,12 +37,15 @@
 
   //RECONFIGURE POSTER-IMAGE VIEWER AS NEEDED IN MOBILE DEVICES
   var setOtn = function() {
-    var $otn = (window.orientation);
-    if ($otn === -90) {
-      console.log('Orientation: ' + window.orientation);
-      setLandscape();
-      return false;
-    } else if($otn === 0) {
+    var otn = window.orientation;
+    var winWidth = window.innerWidth;
+    if(otn === -90 || otn === 90) {
+      if(winWidth <= 768) {
+        console.log('Orientation: ' + window.orientation);
+        setLandscape();
+        return false;
+      }
+    } else if(otn === 0) {
       console.log('portrait orientation');
       setPortrait();
     }
@@ -55,47 +58,45 @@
 
     //  -delay a couple seconds, then animate .skillsFixed, .l-slider, #name L margin 95%
     $('#sections, #shadow').fadeOut('fast'); //fadeIn #sections after shutting off #l-slider
-    $('.skillsFixed, .wk, #name, #shadow').animate({marginLeft: '95%'}, {duration: 1200, queue: false});
+    $('.skillsFixed, .wk, #name, #shadow').animate({marginLeft: '95%'}, {duration: 800, queue: false});
     //  -Remove #l-slider from document flow
     $('#l-slider').fadeOut({duration: 800, queue: false}).promise().
     done(function() {
       //  -display lefthand "tab" div in .skillsAbs and simultaneously fadeIn content
       $('html, body').animate({scrollTop: 0});
       $('#sections').fadeIn(800);
-      $('.skillsAbs > div').show().animate({opacity: 1}, {duration: 800, queue: false}).on('click', function() {
-        landSlider();
-      });
+      $('.skillsAbs > div').show().animate({opacity: 1}, {duration: 1200, queue: false});
     });
   };
 
+  $('.skillsAbs > div').on('click', function() {
+    landSlider();
+  });
+
+
   var landSlider = function() {
-    $('.sliderTab').css({background: 'yellow', boxShadow: '0 0 2px black'});
-    $('.skillsAbs > div').css('border-right', '1px solid rgba(0, 0, 0, 0.5)');
-    $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(0,0,0,0.75)');
+    // $('.sliderTab').css({background: 'yellow', boxShadow: '0 0 2px black'});
+    // $('.skillsAbs > div').css('border-right', '1px solid rgba(0, 0, 0, 0.5)');
+    // $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(0,0,0,0.75)');
     setPortrait();
-    window.setTimeout(setLandscape, 5000);
+    window.setTimeout(setLandscape, 7000);
     $('.sliderTab').css({background: 'black', boxShadow: '0 0 2px yellow'});
     $('.skillsAbs > div').css('border-right', '1px solid rgba(255, 255, 0, 0.5)');
     $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(255,255,0,0.75)');
   };
 
-  var setPortrait = function(callback) {
+  var setPortrait = function() {
     console.log('setPortrait');
-    // $('.skillsFixed, #l-slider, .wk').animate({opacity: 1}, 2500);
-    // $('#shadow').animate({opacity: 1, backgroundColor: 'rgb(0,0,255)'}, 2500);
-    // var $sliderLeft = $('#l-slider').css('margin-left','95%');
     if ($('#about').hasClass('pageInit')) {
       return false;
     }
-    // $('#sections').fadeOut(800);
-    $('#shadow').fadeIn();
+
+    $('#l-slider').fadeIn().animate({marginLeft: 0}, {duration: 1000});
+    $('#shadow').fadeIn(800);
     $('.skillsAbs > div').fadeOut(1000);
-    $('#l-slider').show();
-    $('#sections').fadeIn();
-    $('#l-slider').animate({marginLeft: 0}, 1000);
     $('.skillsFixed, .wk, #name, #shadow').finish().animate({marginLeft: 0}, 1000);
     $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
-    $('#name').addClass('down').animate({opacity: 1, marginTop: '+=2.5rem'}, 2500).delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).promise().
+    $('#name').addClass('down').animate({opacity: 1, marginTop: '+=2.5rem'}, 2500).animate({marginTop: '-=2.5rem', opacity: 0}, 4500).promise().
     done(function() {
       $('#name').removeClass('down');
     });
