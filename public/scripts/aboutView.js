@@ -20,7 +20,7 @@
   }
 );
 
-//On click targeting  section .l-slider, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
+//When section #l-slider clicked, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
   $('#shadow').on('click', function() {
     console.log('Clicked');
     if ($('#name').hasClass('down')) {
@@ -52,17 +52,24 @@
   };
 
   var setLandscape = function() {
-    //animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
+    //Animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
     // CONSOLE-TEST
     console.log('setLandscape');
 
-    //  -delay a couple seconds, then animate .skillsFixed, .l-slider, #name L margin 95%
-    $('#sections, #shadow').fadeOut('fast'); //fadeIn #sections after shutting off #l-slider
+    //Double-checks orientation before continuing function
+    if(window.orientation === 0) {
+      console.log('portrait orientation');
+      return false;
+    }
+
+    //  -prep for layout reconfig by fading out content #sections, #shadow
+    $('#sections, #shadow').fadeOut('fast'); //NOTE: #sections to re-fadeIn after #l-slider turned off
+    //  -animate .skillsFixed, .l-slider, #name, #shadow L margin 95%
     $('.skillsFixed, .wk, #name, #shadow').animate({marginLeft: '95%'}, {duration: 800, queue: false});
     //  -Remove #l-slider from document flow
     $('#l-slider').fadeOut({duration: 800, queue: false}).promise().
     done(function() {
-      //  -display lefthand "tab" div in .skillsAbs and simultaneously fadeIn content
+      //  -display lefthand "tab" div in .skillsAbs and simultaneously reposition and re-fadeIn content #sections
       $('html, body').animate({scrollTop: 0});
       $('#sections').fadeIn(800);
       $('.skillsAbs > div').show().animate({opacity: 1}, {duration: 1200, queue: false});
@@ -70,14 +77,12 @@
   };
 
   $('.skillsAbs > div').on('click', function() {
+    //When lefthand .skillsAbs "tab" clicked, animate slideshow/nav assembly in and back out of way in landscape otn.
     landSlider();
   });
 
-
   var landSlider = function() {
-    // $('.sliderTab').css({background: 'yellow', boxShadow: '0 0 2px black'});
-    // $('.skillsAbs > div').css('border-right', '1px solid rgba(0, 0, 0, 0.5)');
-    // $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(0,0,0,0.75)');
+    //run setPortrait, wait a few seconds, then re-run setLandscape
     setPortrait();
     window.setTimeout(setLandscape, 7000);
     $('.sliderTab').css({background: 'black', boxShadow: '0 0 2px yellow'});
@@ -86,11 +91,14 @@
   };
 
   var setPortrait = function() {
+    //Restore slideshow/nav assembly to correct position for portrait-orientation, or for site navigation in landscape otn.
     console.log('setPortrait');
     if ($('#about').hasClass('pageInit')) {
+      //Aborts if running on initial page load
       return false;
     }
 
+    //Reposition/reveal slideshow/nav assembly above/over content
     $('#l-slider').fadeIn().animate({marginLeft: 0}, {duration: 1000});
     $('#shadow').fadeIn(800);
     $('.skillsAbs > div').fadeOut(1000);
@@ -102,17 +110,14 @@
     });
   };
 
-  //  -on click to "tab", roll everything back out and setPortrait() so it overlays content, drop nameplate, flash #shadow, wait for a few seconds and then (here comes the callback) exeunt omnes stage L. once more
-  // };
-
   var otnDetect = function() {
+    //Checks orientation on page load and device reorientation
     $('page').load(setOtn());
     $(window).on('orientationchange', function() {
       console.log('orientation change');
       setOtn();
     });
   };
-
   otnDetect();
 
   //POSTER-IMAGE VIEWER FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
