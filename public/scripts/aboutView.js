@@ -56,6 +56,12 @@
     // CONSOLE-TEST
     console.log('setLandscape');
 
+    //Double-checks orientation before continuing function
+    if(window.orientation === 0) {
+      console.log('portrait orientation');
+      return false;
+    }
+
     //  -delay a couple seconds, then animate .skillsFixed, .l-slider, #name L margin 95%
     $('#sections, #shadow').fadeOut('fast'); //fadeIn #sections after shutting off #l-slider
     $('.skillsFixed, .wk, #name, #shadow').animate({marginLeft: '95%'}, {duration: 800, queue: false});
@@ -73,11 +79,7 @@
     landSlider();
   });
 
-
   var landSlider = function() {
-    // $('.sliderTab').css({background: 'yellow', boxShadow: '0 0 2px black'});
-    // $('.skillsAbs > div').css('border-right', '1px solid rgba(0, 0, 0, 0.5)');
-    // $('.sliderTab > div').css('box-shadow', '-1px 1px 1px rgba(0,0,0,0.75)');
     setPortrait();
     window.setTimeout(setLandscape, 7000);
     $('.sliderTab').css({background: 'black', boxShadow: '0 0 2px yellow'});
