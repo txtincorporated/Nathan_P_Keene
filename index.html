@@ -17,7 +17,7 @@
         <p>Language:<br> {{language}}</p>
         <p>Created:<br> {{formatDate created_at}}</p>
         <p>Last updated:<br> {{formatDate updated_at}}</p>
-        <p>GitHub repo:<br> {{html_url}}</p>
+        <p>GitHub repo:<br> <a href="{{html_url}}">{{html_url}}</a></p>
         {{#if watchers_count}}
         <p>{{watchers_count}} watching this repo</p>
         {{/if}}
