@@ -1,4 +1,4 @@
-(function(module) {
+(function(module, $) {
   var aboutControl = {};
 
   aboutControl.index = function() {
@@ -16,4 +16,4 @@
     // });
   };
   module.aboutControl = aboutControl;
-})(window);
+})(window, jQuery);
