@@ -141,8 +141,8 @@ html {
   position: absolute;
   font-family: Signika, sans-serif;
   text-align: center;
-  text-shadow: 0 0 1px black;
-  color: rgba(255,255,255,0.5);
+  color: white;
+  text-shadow: 0 0 20px blue;
   opacity: 0;
 }
 
@@ -245,6 +245,13 @@ html {
 
 #about > div:nth-child(2) img {
   border-radius: 20%;
+}
+
+/*.above {
+}*/
+
+.atRight {
+  display: none;
 }
 
 #fourOfour {

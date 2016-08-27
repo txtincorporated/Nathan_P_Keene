@@ -24,6 +24,9 @@
 //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
     console.log('Loaded');
+    $(page).scroll(function() {
+      $('#shadow').filter(':animated').finish();
+    });
     $('#name').addClass('down').animate({marginTop: '+=2.5rem'}, 2500, function() {
       $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 2500);
     }).delay(7000)
@@ -33,7 +36,7 @@
     done(function() {
       $('#name').removeClass('down');
     });
- }
+  }
 );
 
 //When section #l-slider clicked, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
@@ -88,6 +91,7 @@
       //  -display lefthand "tab" div in .skillsAbs and simultaneously reposition and re-fadeIn content #sections
       $('html, body').animate({scrollTop: 0});
       $('#sections').fadeIn(800);
+      $('.above, .atRight').toggle();
       $('.skillsAbs > div').show().animate({opacity: 1}, {duration: 1200, queue: false});
     });
   };
@@ -116,6 +120,8 @@
 
     //Reposition/reveal slideshow/nav assembly above/over content
     $('#l-slider').fadeIn().animate({marginLeft: 0}, {duration: 1000});
+    // $('.atRight').hide();
+    $('.above, .atRight').toggle();
     $('#shadow').fadeIn(800);
     $('.skillsAbs > div').fadeOut(1000);
     $('.skillsFixed, .wk, #name, #shadow').finish().animate({marginLeft: 0}, 1000);
