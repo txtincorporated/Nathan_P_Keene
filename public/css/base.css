@@ -198,7 +198,7 @@ html {
   text-shadow: 0.25px 0.25px 10px rgb(56, 55, 57);
 }
 
-#sections p {
+#sections p, #cpyRight {
   font-family: 'Slabo 27px', serif;
   font-size: 0.95rem;
   margin-top: 0.5rem;
@@ -247,9 +247,6 @@ html {
   border-radius: 20%;
 }
 
-/*.above {
-}*/
-
 .atRight {
   display: none;
 }
@@ -264,4 +261,11 @@ html {
 
 .noBullets {
   list-style: none;
+}
+
+#cpyRight {
+  padding-left: 1%;
+  margin-top: 5%;
+  margin-right: 7%;
+  text-align: center;
 }
