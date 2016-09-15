@@ -15,7 +15,7 @@ The app is live at [https://nathan-p-keene.herokuapp.com](https://nathan-p-keene
 
 --As a hiring manager or other potential partner I want to see a full gamut of Nathan's coding experience and knowledge demonstrated in the projects exhibited.
 
---As an aspiring entry level employee or partner, I want to demonstrate as many coding skills as possible passively through the site at hand.
+--As an aspiring employee or partner, I want to demonstrate as many coding skills as possible passively through the site at hand.
 
 --As a designer I want my portfolio to be media rich in a way that reflects a bit of my personality and pursuits as well as my skills.
 
