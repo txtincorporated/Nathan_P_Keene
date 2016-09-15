@@ -8,19 +8,6 @@
     $slideShow.find('div').empty();
   };
 
-  // function clickEvent() {
-  //   console.log('Clicked');
-  //   if ($('#name').hasClass('down')) {
-  //     console.log('Name is down');
-  //     $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
-  //     return;
-  //   }
-  //   $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
-  //   $('#name').addClass('down').animate({opacity: 1, marginTop: '+=2.5rem'}, 2500).delay(5000).animate({marginTop: '-=2.5rem', opacity: 0}, 2500).promise().
-  //   done(function() {
-  //     $('#name').removeClass('down');
-  //   }
-
 //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
     console.log('Loaded');
