@@ -1,4 +1,9 @@
-USER STORIES
+# READ ME
+This is the code for my first Web development portfolio and was produced in the course of completing the [Code 301](https://www.codefellows.org/courses/code-301/intermediate-software-development/) course at [Code Fellows](http://www.codefellows.org).
+
+The app is live at [https://nathan-p-keene.herokuapp.com](https://nathan-p-keene.herokuapp.com)
+
+#### USER STORIES
 
 --As an applicant for entry-level code jobs, I want the site to display well in any medium a hiring manager may be using to view it, i.e., to use RWD to its best effect in any viewer.
 
@@ -14,4 +19,4 @@ USER STORIES
 
 --As a designer I want my portfolio to be media rich in a way that reflects a bit of my personality and pursuits as well as my skills.
 
---As a user I want to be diverted a bit with some well-presented media. 
+--As a user I want to be diverted a bit with some well-presented media.
