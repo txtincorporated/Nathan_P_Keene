@@ -10,10 +10,6 @@
 
   //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
-<<<<<<< HEAD
-=======
-
->>>>>>> portfolioV16a
     $(window).scroll(function() {
       $('#shadow').stop(false,true);
     });
@@ -31,13 +27,9 @@
 
   //When section #l-slider clicked, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
   $('#shadow').on('click', function() {
-<<<<<<< HEAD
-    if ($('#name').hasClass('down')) {
-=======
 
     if ($('#name').hasClass('down')) {
 
->>>>>>> portfolioV16a
       $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
       return;
     }
@@ -54,18 +46,10 @@
     var winWidth = window.innerWidth;
     if(otn === -90 || otn === 90) {
       if(winWidth <= 768) {
-<<<<<<< HEAD
-=======
-
->>>>>>> portfolioV16a
         setLandscape();
         return false;
       }
     } else if(otn === 0) {
-<<<<<<< HEAD
-=======
-
->>>>>>> portfolioV16a
       setPortrait();
     }
   };
