@@ -4,7 +4,7 @@
 
   //REST call to GitHub API to GET all repos for user and push results to an array
   projs.getProjects = function(callback) {
-    $.getJSON('/github/user/repos?per_page=100', function(data) {
+    $.getJSON('/github/user/repos?per_page=100&sort=created', function(data) {
       $.each(data, function(index, value) {
         projs.all.push(value);
       });
