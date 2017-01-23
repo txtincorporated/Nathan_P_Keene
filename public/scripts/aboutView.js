@@ -10,7 +10,7 @@
 
 //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
-    console.log('Loaded');
+
     $(window).scroll(function() {
       $('#shadow').stop(false,true);
     });
@@ -28,9 +28,9 @@
 
 //When section #l-slider clicked, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
   $('#shadow').on('click', function() {
-    console.log('Clicked');
+
     if ($('#name').hasClass('down')) {
-      console.log('Name is down');
+
       $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
       return;
     }
@@ -47,12 +47,12 @@
     var winWidth = window.innerWidth;
     if(otn === -90 || otn === 90) {
       if(winWidth <= 768) {
-        console.log('Orientation: ' + window.orientation);
+
         setLandscape();
         return false;
       }
     } else if(otn === 0) {
-      console.log('portrait orientation');
+
       setPortrait();
     }
   };
@@ -60,11 +60,11 @@
   var setLandscape = function() {
     //Animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
     // CONSOLE-TEST
-    console.log('setLandscape');
+
 
     //Double-checks orientation before continuing function
     if(window.orientation === 0) {
-      console.log('portrait orientation');
+
       return false;
     }
 
@@ -98,7 +98,7 @@
 
   var setPortrait = function() {
     //Restore slideshow/nav assembly to correct position for portrait-orientation, or for site navigation in landscape otn.
-    console.log('setPortrait');
+
     if ($('#about').hasClass('pageInit')) {
       //Aborts if running on initial page load
       return false;
@@ -122,7 +122,7 @@
     $('page').load(setOtn());
     $(window).on('orientationchange', function() {
       $('.above, .atRight').toggle();
-      console.log('orientation change');
+
       setOtn();
     });
   };
@@ -130,7 +130,7 @@
 
   //POSTER-IMAGE VIEWER FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
   var slideMe = function(callback) {
-    // console.log('Start slideMe');
+
     var $lastInd = $('.imgHolder a:last-child').index();
     $('.imgHolder img').each(function(index) {
       $(this).delay((($lastInd - index) * 6500) + 2000).fadeOut(2000);
@@ -152,7 +152,7 @@
 
   //POSTER-IMAGE FUNCTION D: RUNS P-I FUNCTION A
   var slideOver = function() {
-    // console.log('Slideshow resart');
+
     slideMe(reRun);//Starts slideshow and has itself re-fired at end by passing callback function to it that indirectly re-invokes slideOver in turn
   };
 

@@ -5,7 +5,7 @@
 
     $('html, body').animate({scrollTop: 0}, 0);//Start w/ top margin of text body positioned consistently
     $projx.fadeIn('slow').siblings().hide();
-    console.log('List of items returned for projs.all: ', projs.all);
+
     //If no first item in array of repo objects, run REST call to GitHub API with callback to filter and populate template with selected content
     if (!projs.all[0]) {
       projs.getProjects(projView.index);
