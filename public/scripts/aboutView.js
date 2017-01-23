@@ -10,6 +10,10 @@
 
   //On page load, drop down nameplate nav element (linked to section #projects) and then re-conceal
   $(document).ready(function() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> portfolioV16a
     $(window).scroll(function() {
       $('#shadow').stop(false,true);
     });
@@ -27,7 +31,13 @@
 
   //When section #l-slider clicked, flash fixed-position section #shadow (fixed-position, fixed aspect ratio section displaying only a blue inset box-shadow); drop and retract/fade nameplate
   $('#shadow').on('click', function() {
+<<<<<<< HEAD
     if ($('#name').hasClass('down')) {
+=======
+
+    if ($('#name').hasClass('down')) {
+
+>>>>>>> portfolioV16a
       $('#shadow').animate({opacity: 1}).animate({opacity: 0}, 500);
       return;
     }
@@ -44,22 +54,31 @@
     var winWidth = window.innerWidth;
     if(otn === -90 || otn === 90) {
       if(winWidth <= 768) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> portfolioV16a
         setLandscape();
         return false;
       }
     } else if(otn === 0) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> portfolioV16a
       setPortrait();
     }
   };
 
   //Animate fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
   var setLandscape = function() {
-
+   //Animates fixed-position navs out to R and leaves clickable tab for getting them back; should be called as callback by "tab" click handler
+    
+    // CONSOLE-TEST
     //Double-check orientation before continuing function
     if(window.orientation === 0) {
       return false;
     }
-
     //prep for layout reconfig by fading out content #sections, #shadow
     $('#sections, #shadow').fadeOut('fast'); //NOTE: #sections to re-fadeIn after #l-slider turned off
     //animate .skillsFixed, .l-slider, #name, #shadow L margin 95%
@@ -112,7 +131,7 @@
     $('page').load(setOtn());
     $(window).on('orientationchange', function() {
       $('.above, .atRight').toggle();
-      console.log('orientation change');
+
       setOtn();
     });
   };
@@ -120,6 +139,7 @@
 
   //POSTER-IMAGE VIEWER FUNCTION A: RUN SLIDE SHOW THROUGH EACH ELEMENT
   var slideMe = function(callback) {
+
     var $lastInd = $('.imgHolder a:last-child').index();
     $('.imgHolder img').each(function(index) {
       $(this).delay((($lastInd - index) * 6500) + 2000).fadeOut(2000);
@@ -141,7 +161,7 @@
 
   //POSTER-IMAGE FUNCTION D: RUNS P-I FUNCTION A
   var slideOver = function() {
-    // console.log('Slideshow resart');
+
     slideMe(reRun);//Starts slideshow and has itself re-fired at end by passing callback function to it that indirectly re-invokes slideOver in turn
   };
 
